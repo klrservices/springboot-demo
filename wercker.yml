@@ -1,0 +1,34 @@
+box:
+  id: openjdk
+# defining the dev pipeline
+dev:
+  steps:
+    - script:
+      name: gradle run
+      code: |
+        ./gradlew run
+# Build definition
+build:
+  steps:
+    # A step that executes `gradle installDist` command
+    - java/gradle:
+      task: installDist
+      version: 4.2
+      cache_project_cache: true
+    - script:
+      name: copy installation files
+      code: |
+        cp -r ./build/install/springboot-demo "$WERCKER_OUTPUT_DIR"
+# Push docker image
+deploy:
+  box:
+    id: openjdk
+    cmd: /bin/sh
+  steps:
+    - internal/docker-push:
+#      username: $REGISTRY_USERNAME
+#      password: $REGISTRY_PASSWORD
+      tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
+      entrypoint: "springboot-demo/bin/springboot-demo"
+#      repository: klr-rpi/grovepi-demo
+#registry: https://registry.gitlab.com
