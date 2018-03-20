@@ -15,6 +15,7 @@ build:
       task: installDist
       version: 4.2
       cache_project_cache: true
+      debug: true
     - script:
       name: show local path
       code: |
