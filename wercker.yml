@@ -23,7 +23,7 @@ build:
     - script:
       name: copy installation files
       code: |
-        cp -r ./build/install/springboot-demo "$WERCKER_OUTPUT_DIR"
+        cp -r ./build/install/source "$WERCKER_OUTPUT_DIR"
 # Push docker image
 deploy:
   box:
@@ -34,6 +34,6 @@ deploy:
 #      username: $REGISTRY_USERNAME
 #      password: $REGISTRY_PASSWORD
       tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
-      entrypoint: "springboot-demo/bin/springboot-demo"
+      entrypoint: "source/bin/source"
 #      repository: klr-rpi/grovepi-demo
 #registry: https://registry.gitlab.com
