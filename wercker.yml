@@ -16,6 +16,10 @@ build:
       version: 4.2
       cache_project_cache: true
     - script:
+      name: show local path
+      code: |
+        pwd & ls -la
+    - script:
       name: copy installation files
       code: |
         cp -r ./build/install/springboot-demo "$WERCKER_OUTPUT_DIR"
