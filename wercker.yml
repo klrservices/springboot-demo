@@ -28,7 +28,7 @@ build:
 deploy:
   box:
     id: openjdk
-    cmd: /bin/sh
+#    cmd: /bin/sh
   steps:
     - internal/docker-push:
 #      username: $REGISTRY_USERNAME
