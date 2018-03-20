@@ -18,7 +18,7 @@ build:
     - script:
       name: show local path
       code: |
-        pwd & ls -la
+        pwd & ls -la build/install
     - script:
       name: copy installation files
       code: |
