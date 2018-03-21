@@ -29,6 +29,6 @@ deploy:
 #      username: $REGISTRY_USERNAME
 #      password: $REGISTRY_PASSWORD
       tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
-      entrypoint: "$WERCKER_ROOT/springboot-demo-boot/bin/springboot-demo"
+      entrypoint: "/pipeline/source/springboot-demo-boot/bin/springboot-demo"
 #      repository: klr-rpi/grovepi-demo
 #registry: https://registry.gitlab.com
