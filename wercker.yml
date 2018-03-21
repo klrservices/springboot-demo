@@ -35,14 +35,14 @@ deploy:
 
 deploy-to-oke:
   box:
-        id: alpine
-        cmd: /bin/sh
+    id: alpine
+    cmd: /bin/sh
   steps:
     - bash-template
 
     - script:
         name: "Visualise Kubernetes config"
-        code: cat /pipeline/source/kubernetes-deployment.yml
+        code: cat $WERCKER_ROOT/kubernetes-deployment.yml
 
     - kubectl:
         name: delete namespace
