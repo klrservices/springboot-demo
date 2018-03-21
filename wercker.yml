@@ -12,14 +12,14 @@ build:
   steps:
     # A step that executes `gradle installDist` command
     - java/gradle:
-      task: installDist
+      task: installBootDist
       version: 4.2
       cache_project_cache: true
 #      debug: true
     - script:
       name: copy installation files
       code: |
-        cp -r ./build/install/springboot-demo "$WERCKER_OUTPUT_DIR"
+        cp -r ./build/install/springboot-demo-boot "$WERCKER_OUTPUT_DIR"
 # Push docker image
 deploy:
   box:
@@ -29,6 +29,6 @@ deploy:
 #      username: $REGISTRY_USERNAME
 #      password: $REGISTRY_PASSWORD
       tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
-#      entrypoint: "springboot-demo/bin/springboot-demo"
+      entrypoint: "$WERCKER_ROOT/springboot-demo-boot/bin/springboot-demo"
 #      repository: klr-rpi/grovepi-demo
 #registry: https://registry.gitlab.com
