@@ -42,7 +42,7 @@ deploy-to-oke:
 
     - script:
         name: "Visualise Kubernetes config"
-        code: cat kubernetes-deployment.yml
+        code: cat /pipeline/source/kubernetes-deployment.yml
 
     - kubectl:
         name: delete namespace
