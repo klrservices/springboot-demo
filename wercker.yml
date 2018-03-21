@@ -19,7 +19,7 @@ build:
     - script:
       name: copy installation files
       code: |
-        cp -r ./build/install/source "$WERCKER_OUTPUT_DIR"
+        cp -r ./build/install/springboot-demo "$WERCKER_OUTPUT_DIR"
 # Push docker image
 deploy:
   box:
