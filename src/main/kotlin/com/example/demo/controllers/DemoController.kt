@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class DemoController {
     @RequestMapping("/test")
-    fun test() = "Hello world!"
+    fun test() = "Hello Warsaw Hackaton!!!!"
 }
