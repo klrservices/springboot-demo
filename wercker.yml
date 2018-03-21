@@ -15,11 +15,7 @@ build:
       task: installDist
       version: 4.2
       cache_project_cache: true
-      debug: true
-    - script:
-      name: show local path
-      code: |
-        pwd & ls -la build/install
+#      debug: true
     - script:
       name: copy installation files
       code: |
@@ -28,12 +24,11 @@ build:
 deploy:
   box:
     id: openjdk
-#    cmd: /bin/sh
   steps:
     - internal/docker-push:
 #      username: $REGISTRY_USERNAME
 #      password: $REGISTRY_PASSWORD
       tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
-      entrypoint: "source/bin/source"
+      entrypoint: "springboot-demo/bin/springboot-demo"
 #      repository: klr-rpi/grovepi-demo
 #registry: https://registry.gitlab.com
