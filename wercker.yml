@@ -21,9 +21,9 @@ build:
       code: |
         cp -r ./build/install/springboot-demo-boot "$WERCKER_OUTPUT_DIR"
     - script:
-      name: copy k8s files
+      name: copy k8s template files
       code: |
-        cp ./*.yml "$WERCKER_OUTPUT_DIR"
+        cp ./*.template "$WERCKER_OUTPUT_DIR"
 
 # Push docker image
 deploy:
