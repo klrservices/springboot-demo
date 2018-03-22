@@ -10,7 +10,7 @@ dev:
 # Build definition
 build:
   steps:
-    # A step that executes `gradle installDist` command
+    # A step that executes `gradle installBootDist` command
     - java/gradle:
       task: installBootDist
       version: 4.2
@@ -34,7 +34,8 @@ deploy:
 #      username: $REGISTRY_USERNAME
 #      password: $REGISTRY_PASSWORD
       tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
-      entrypoint: "/pipeline/source/springboot-demo-boot/bin/springboot-demo"
+      working-dir: $WERCKER_ROOT
+      entrypoint: "springboot-demo-boot/bin/springboot-demo"
 #      repository: klr-rpi/grovepi-demo
 #registry: https://registry.gitlab.com
 
