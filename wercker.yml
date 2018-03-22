@@ -15,7 +15,6 @@ build:
       task: installBootDist
       version: 4.2
       cache_project_cache: true
-#      debug: true
     - script:
       name: copy installation files
       code: |
@@ -31,13 +30,9 @@ deploy:
     id: openjdk
   steps:
     - internal/docker-push:
-#      username: $REGISTRY_USERNAME
-#      password: $REGISTRY_PASSWORD
       tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
       working-dir: $WERCKER_ROOT
       entrypoint: "springboot-demo-boot/bin/springboot-demo"
-#      repository: klr-rpi/grovepi-demo
-#registry: https://registry.gitlab.com
 
 deploy-to-oke:
   box:
