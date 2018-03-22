@@ -3,4 +3,9 @@ http://localhost:8080/test
 ### deployed on OKE:
 http://129.213.79.243/lukaszro/test
 
+> {%
+client.test("Request returns hello message", function() {
+  client.assert(response.status === 200 && response.body.toString() === "Hello Warsaw Hackaton!!!!", "Response status is not 200 or message does not match");
+});
+%}
 ###
