@@ -10,7 +10,7 @@ spec:
   tls:
   - secretName: tls-secret
   rules:
-  - https:
+  - http:
       paths:
       - path: /$WERCKER_APPLICATION_OWNER_NAME/
         backend:
