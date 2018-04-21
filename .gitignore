@@ -18,21 +18,15 @@
 
 ### NetBeans ###
 nbproject/private/
-build/
 nbbuild/
 dist/
 nbdist/
 .nb-gradle/
 ### Gradle template
-.gradle
-/build/
-
 # Ignore Gradle GUI config
 gradle-app.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
-
 # Cache of project
 .gradletasknamecache
 
@@ -43,7 +37,6 @@ gradle-app.setting
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
-.idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
 
@@ -57,9 +50,6 @@ gradle-app.setting
 .idea/**/uiDesigner.xml
 
 # Gradle:
-.idea/**/gradle.xml
-.idea/**/libraries
-
 # CMake
 cmake-build-debug/
 cmake-build-release/
@@ -68,8 +58,6 @@ cmake-build-release/
 .idea/**/mongoSettings.xml
 
 ## File-based project format:
-*.iws
-
 ## Plugin-specific files:
 
 # IntelliJ
@@ -114,25 +102,9 @@ fabric.properties
 hs_err_pid*
 ### Kotlin template
 # Compiled class file
-*.class
-
 # Log file
-*.log
-
 # BlueJ files
-*.ctxt
-
 # Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
 # Package Files #
-*.jar
-*.war
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
+/target/*
