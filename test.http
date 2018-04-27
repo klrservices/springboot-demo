@@ -1,4 +1,14 @@
+### run directly:
 http://localhost:8080/test
+
+> {%
+client.test("Request returns hello message", function() {
+  client.assert(response.status === 200 && response.body.toString() === "Hello World!!!!", "Response status is not 200 or message does not match");
+});
+%}
+
+### deployed on local k8s cluster:
+http://localhost:8088/test
 
 > {%
 client.test("Request returns hello message", function() {

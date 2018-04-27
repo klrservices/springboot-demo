@@ -1,0 +1,3 @@
+*
+!Dockerfile
+!build/install/springboot-demo-boot/**/*
