@@ -1,0 +1,2 @@
+kubectl scale --replicas=2 deployment/rest-springboot-demo
+kubectl set image deployment/rest-springboot-demo rest-springboot-demo=springboot-demo:0.0.2-SNAPSHOT
