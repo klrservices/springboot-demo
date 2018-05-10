@@ -125,7 +125,7 @@ deploy-to-gke:
         gke-cluster-name: $GKE_CLUSTER_NAME
         gke-cluster-zone: $GKE_CLUSTER_ZONE
         gke-cluster-project: $GKE_CLUSTER_PROJECT
-        command: apply -f $WERCKER_OUTPUT_DIR/kubernetes-deployment-gke.yml
+        command: apply -f $WERCKER_ROOT/kubernetes-deployment-gke.yml
 
     - riceo/kubectl:
         name: get LoadBalancer public IP address
