@@ -110,9 +110,7 @@ push-to-gcr:
       registry: $GCR_HOST/v2
 
 deploy-to-gke:
-  box:
-    id: alpine
-    cmd: /bin/sh
+  box: python:2.7
   steps:
     - bash-template
 
