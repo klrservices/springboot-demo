@@ -21,7 +21,17 @@ http://129.213.79.243/lukaszro/test
 
 > {%
 client.test("Request returns hello message", function() {
-  client.assert(response.status === 200 && response.body.toString() === "Hello Warsaw Hackaton!!!!", "Response status is not 200 or message does not match");
+  client.assert(response.status === 200 && response.body.toString() === "Hello World!!!!", "Response status is not 200 or message does not match");
 });
 %}
+
+### deployed on GKE:
+http://35.189.221.194:8088/test
+
+> {%
+client.test("Request returns hello message", function() {
+  client.assert(response.status === 200 && response.body.toString() === "Hello World!!!!", "Response status is not 200 or message does not match");
+});
+%}
+
 ###
