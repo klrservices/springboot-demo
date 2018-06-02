@@ -1,0 +1,9 @@
+apiVersion: skaffold/v1alpha2
+kind: Config
+build:
+  artifacts:
+  - imageName: springboot-demo
+deploy:
+  kubectl:
+    manifests:
+    - springboot-demo-k8s.yml
