@@ -1,8 +1,14 @@
-#
-# Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved.
-#
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: springboot-demo-config
+data:
+  application.properties: |-
+    demo.name=Kubernetes
 
-apiVersion: extensions/v1beta1
+---
+
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rest-springboot-demo
@@ -15,21 +21,36 @@ spec:
       maxSurge: 1
       maxUnavailable: 1
     type: RollingUpdate
+  selector:
+    matchLabels:
+      run: rest-springboot-demo
   template:
     metadata:
       labels:
         run: rest-springboot-demo
     spec:
       containers:
-      - image: springboot-demo:0.0.1-SNAPSHOT
-        imagePullPolicy: Never
-        name: rest-springboot-demo
-        ports:
-        - containerPort: 8080
-          protocol: TCP
+        - image: springboot-demo:0.0.1-SNAPSHOT
+          imagePullPolicy: Never
+          name: rest-springboot-demo
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /config
+              name: application-config
+              readOnly: true
       imagePullSecrets:
-      - name: wrelease
+        - name: wrelease
       restartPolicy: Always
+      volumes:
+        - name: application-config
+          configMap:
+            name: springboot-demo-config
+            optional: true
+            items:
+            - key: application.properties
+              path: application.properties
 ---
 apiVersion: v1
 kind: Service

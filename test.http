@@ -12,7 +12,7 @@ http://localhost:8088/test
 
 > {%
 client.test("Request returns hello message", function() {
-  client.assert(response.status === 200 && response.body.toString() === "Hello World!!!!", "Response status is not 200 or message does not match");
+  client.assert(response.status === 200 && response.body.toString() === "Hello Kubernetes!!!!", "Response status is not 200 or message does not match");
 });
 %}
 
