@@ -1,5 +1,5 @@
 ### run directly:
-http://localhost:8080/test
+http://localhost:8081/test
 
 > {%
 client.test("Request returns hello message", function() {

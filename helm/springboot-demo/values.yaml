@@ -46,3 +46,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+app:
+  port: 8080
+
+demo:
+  name: James Bond
+  greeting: Salut

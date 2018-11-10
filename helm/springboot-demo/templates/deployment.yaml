@@ -25,8 +25,14 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: {{ .Values.app.port }}
               protocol: TCP
+          env:
+            - name: DEMO_NAME
+              valueFrom:
+                secretKeyRef:
+                  key: demo_name
+                  name: {{ include "springboot-demo.fullname" . }}-app-secret
           volumeMounts:
             - mountPath: /config
               name: application-config

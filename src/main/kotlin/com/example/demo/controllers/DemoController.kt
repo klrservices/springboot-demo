@@ -9,6 +9,12 @@ class DemoController {
     @Value("\${demo.name}")
     val name:String? = "World"
 
+    @Value("\${demo.greeting}")
+    val greeting:String? = "Hello"
+
+    @Value("\${demo.greeter}")
+    val greeter:String? = "Spring"
+
     @RequestMapping("/test")
-    fun test() = "Hello $name!!!!"
+    fun test() = "$greeting $name from $greeter !!!!"
 }

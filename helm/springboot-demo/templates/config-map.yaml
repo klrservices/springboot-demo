@@ -4,4 +4,4 @@ metadata:
   name: {{ include "springboot-demo.fullname" . }}-config-map
 data:
   application.properties: |-
-    {{ include "application.properties" . }}
+{{ include "application.properties" . | indent 4}}
