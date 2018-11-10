@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "springboot-demo.fullname" . }}-config-map
+data:
+  application.properties: |-
+    {{ include "application.properties" . }}
