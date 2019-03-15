@@ -4,11 +4,9 @@ metadata:
   name: rest-springboot-demo-ing
   annotations:
     kubernetes.io/ingress.class: 'nginx'
-    ingress.kubernetes.io/add-base-url: 'true'
+    #ingress.kubernetes.io/add-base-url: 'true'
     ingress.kubernetes.io/rewrite-target: /
 spec:
-  tls:
-  - secretName: tls-secret
   rules:
   - http:
       paths:
