@@ -1,6 +1,5 @@
 box:
-  id: openjdk
-  version: 8
+  id: openjdk:8
 # defining the dev pipeline
 dev:
   steps:
