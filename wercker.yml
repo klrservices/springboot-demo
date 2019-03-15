@@ -33,7 +33,10 @@ push-image:
       tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
       working-dir: $WERCKER_ROOT
       entrypoint: "springboot-demo-boot/bin/springboot-demo"
-
+      username: $DOCKER_USERNAME # Registry username
+      password: $DOCKER_PASSWORD # Registry password
+      registry: $DOCKER_REGISTRY
+      repository: $DOCKER_REPO
 deploy-to-oke:
   box:
     id: alpine
