@@ -15,6 +15,7 @@ buildscript {
 
 plugins {
     id 'com.gorylenko.gradle-git-properties' version '1.4.21'
+    id 'com.google.cloud.tools.jib' version '1.0.2'
 }
 
 apply plugin: 'kotlin'

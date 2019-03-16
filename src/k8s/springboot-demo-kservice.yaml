@@ -1,0 +1,31 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: springboot-demo-service
+  namespace: default
+spec:
+  runLatest:
+    configuration:
+      build:
+        apiVersion: build.knative.dev/v1alpha1
+        kind: Build
+        spec:
+          serviceAccountName: build
+          source:
+            git:
+              url: https://github.com/klrservices/springboot-demo.git
+              revision: feature/knative
+          template:
+            name: jib-gradle
+            arguments:
+              - name: IMAGE
+                value: fra.ocir.io/klr/springboot-demo:latest
+          timeout: 10m
+      revisionTemplate:
+        spec:
+          container:
+            image: fra.ocir.io/klr/springboot-demo:latest
+            imagePullPolicy: Always
+            env:
+              - name: DEMO_GREETER
+                value: "Knative"
