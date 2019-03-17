@@ -27,8 +27,6 @@ spec:
           container:
             image: fra.ocir.io/klr/springboot-demo:latest
             imagePullPolicy: Always
-            imagePullSecrets:
-              - name: ocir-regcred
             env:
               - name: DEMO_GREETER
                 value: "Knative"
