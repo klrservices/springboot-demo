@@ -13,7 +13,7 @@ build:
     # A step that executes `gradle installBootDist` command
     - java/gradle:
       task: installBootDist
-      version: 4.2
+      version: 5.2.1
       cache_project_cache: true
     - script:
       name: copy installation files
