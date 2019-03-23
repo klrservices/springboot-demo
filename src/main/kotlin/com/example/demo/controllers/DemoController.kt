@@ -10,11 +10,11 @@ class DemoController {
     val name:String? = "World"
 
     @Value("\${demo.greeting}")
-    val greeting:String? = "Hello"
+    val greeting:String? = "Salut"
 
     @Value("\${demo.greeter}")
     val greeter:String? = "Spring"
 
     @RequestMapping("/test")
-    fun test() = "$greeting $name from $greeter !!!!"
+    fun test() = "$greeting $name din $greeter !!!!"
 }

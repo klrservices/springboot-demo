@@ -33,6 +33,8 @@ spec:
                 secretKeyRef:
                   key: demo_name
                   name: {{ include "springboot-demo.fullname" . }}-app-secret
+            - name: DEMO_GREETING
+              value: {{ .Values.demo.greeting }}
           volumeMounts:
             - mountPath: /config
               name: application-config
