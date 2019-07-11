@@ -24,6 +24,11 @@ build:
       code: |
         cp ./*.template "$WERCKER_OUTPUT_DIR"
 
+    - script:
+      name: copy k8s files
+      code: |
+        cp ./*.yml "$WERCKER_OUTPUT_DIR"
+
 # Push docker image
 push-image:
   box:
