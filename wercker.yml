@@ -96,7 +96,8 @@ deploy-to-oke:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: patch ingress rest-springboot-demo-ing -p '{"metadata":{"annotations":{"nginx.ingress.kubernetes.io/rewrite-target": "/$1",}}}' --namespace=$WERCKER_APPLICATION_OWNER_NAME
+        command: |
+          patch ingress rest-springboot-demo-ing -p '{"metadata":{"annotations":{"nginx.ingress.kubernetes.io/rewrite-target": "/$1",}}}' --namespace=$WERCKER_APPLICATION_OWNER_NAME
 
     - kubectl:
         name: get LoadBalancer public IP address
