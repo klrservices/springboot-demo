@@ -64,8 +64,8 @@ dependencies {
 
 project.ext {
     image = project.properties.getOrDefault('image', project.name)
-//    dnsName = project.properties.getOrDefault('dnsName', project.name)
-//    envFile = project.properties.getOrDefault('envFile', project.name)
+    ocirUsername = project.properties.getOrDefault('OCIR_USERNAME', System.env.OCIR_USERNAME)
+    ocirPassword = project.properties.getOrDefault('OCIR_USERNAME', System.env.OCIR_PASSWORD)
 }
 
 jib {
@@ -73,13 +73,8 @@ jib {
         image = project.image
         tags = [project.version.toString(), 'latest']
         auth {
-            username = OCIR_USERNAME
-            password = OCIR_PASSWORD
+            username = ocirUsername
+            password = ocirPassword
         }
-    }
-
-    container {
-        ports = ["8080"]
-        jvmFlags = ['-Des.set.netty.runtime.available.processors=false']
     }
 }
