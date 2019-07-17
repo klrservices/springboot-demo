@@ -1,9 +1,22 @@
-apiVersion: skaffold/v1alpha2
+apiVersion: skaffold/v1beta12
 kind: Config
 build:
+  tagPolicy:
+    dateTime:
+      format: "2006-01-02_15-04-05.999_MST"
+      timezone: "Local"
   artifacts:
-  - imageName: springboot-demo
+  - image: fra.ocir.io/arrow2020/lukaszro/springboot-demo:0.0.1-SNAPSHOT
+    jibGradle: {}
+  local:
+    push: true
 deploy:
-  kubectl:
-    manifests:
-    - springboot-demo-k8s.yml
+  helm:
+    releases:
+      - name: spring-demo
+        chartPath: helm/springboot-demo
+        namespace: default
+        recreatePods: true
+        values:
+          image: fra.ocir.io/arrow2020/lukaszro/springboot-demo:0.0.1-SNAPSHOT
+        valuesFiles: ["helm/oke-values.yaml"]
